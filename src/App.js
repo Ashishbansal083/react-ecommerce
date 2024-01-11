@@ -15,7 +15,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import ProductDetail from './features/product-list/components/ProductDetail';
+import ProductDetail from './features/product/components/ProductDetail';
 import ProductDetailPage from './pages/ProductDetailPage';
 
 const router = createBrowserRouter([
