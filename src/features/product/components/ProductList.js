@@ -44,25 +44,14 @@ const filters = [
     id: "category",
     name: "Category",
     options: [
-      { value: "new-arrivals", label: "New Arrivals", checked: false },
-      { value: "sale", label: "Sale", checked: false },
-      { value: "travel", label: "Travel", checked: true },
-      { value: "organization", label: "Organization", checked: false },
-      { value: "accessories", label: "Accessories", checked: false },
+      { value: "laptops", label: "laptops", checked: false },
+      { value: "fragrances", label: "fragrances", checked: false },
+      { value: "skincare", label: "skincare", checked: true },
+      { value: "groceries", label: "groceries", checked: false },
+      { value: "home-decoration", label: "home-decoration", checked: false },
+      { value: "smartphones", label: "smartphones", checked: false },
     ],
-  },
-  {
-    id: "size",
-    name: "Size",
-    options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: true },
-    ],
-  },
+  },   
 ];
 
 export default function ProductList() {
@@ -73,9 +62,8 @@ export default function ProductList() {
 
   
   const products = useSelector(selectAllProducts);
-  useEffect(()=>{
-    console.log("active")
-    dispatch(fetchAllProductsAsync)
+  useEffect(()=>{    
+    dispatch(fetchAllProductsAsync())
   },[dispatch])
   
   return (
