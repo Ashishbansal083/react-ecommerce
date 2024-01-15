@@ -1,6 +1,6 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAllProductsAsync, selectAllProducts } from "../productSlice";
+import { fetchAllProductsAsync, fetchProductsByFilterAsync, selectAllProducts } from "../productSlice";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
@@ -198,6 +198,16 @@ export default function ProductList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   const products = useSelector(selectAllProducts);
+  const [filter,setfilter] = useState({})
+
+
+ const handlefilter = (e,section,option)=>{
+  const newFilter = {...filter,[section.id]:option.value};
+  setfilter(newFilter)
+  dispatch(fetchProductsByFilterAsync(newFilter))
+  console.log(section.id,option.value)
+ }
+
   useEffect(() => {
     dispatch(fetchAllProductsAsync());
   }, [dispatch]);
@@ -435,7 +445,7 @@ export default function ProductList() {
                                   defaultValue={option.value}
                                   type="checkbox"
                                   defaultChecked={option.checked}
-                                  onChange={e=>console.log(e)}
+                                  onChange={e=>handlefilter(e,section,option)}
                                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
                                 <label
