@@ -7,11 +7,20 @@ export function fetchAllProducts() {
   );
 }
 
-export function fetchProductsByFilter(filter) {
+export function fetchProductsByFilter(filter,sort) {
+  // filter ={"category":["smartphone","laptops"]}
+  //sort={_sort:"price",_order:"desc"}
   // ToDo  : on server we will devlelop multivalue filter
-  let queryString = ''
-  for(let key in filter){
-    queryString += `${key}=${filter[key]}&`
+  let queryString = '';
+  for(let key in filter){    
+    const categoryValues = filter[key];
+    if(categoryValues.length>0){
+      const lastCategoryValue = categoryValues[categoryValues.length-1]
+      queryString += `${key}=${lastCategoryValue}&`
+    }
+  }
+  for(let key in sort){
+    queryString += `${key}=${sort[key]}&`
   }
   return new Promise(async (resolve) =>{
     //ToDo: we will nmot hard code the server url here

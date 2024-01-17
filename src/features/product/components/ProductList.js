@@ -172,19 +172,19 @@ const filters = [
     options: [
       { value: "smartphones", label: "smartphones", checked: false },
       { value: "laptops", label: "laptops", checked: false },
-      { value: "fragrances", label: "fragrances", checked: true },
+      { value: "fragrances", label: "fragrances", checked: false },
       { value: "skincare", label: "skincare", checked: false },
       { value: "groceries", label: "groceries", checked: false },
       { value: "home-decoration", label: "home-decoration", checked: false },
       { value: "furniture", label: "furniture", checked: false },
       { value: "tops", label: "tops", checked: false },
-      { value: "womens-dresses", label: "womens-dresses", checked: true },
+      { value: "womens-dresses", label: "womens-dresses", checked: false },
       { value: "womens-shoes", label: "womens-shoes", checked: false },
       { value: "mens-shirts", label: "mens-shirts", checked: false },
       { value: "mens-shoes", label: "mens-shoes", checked: false },
       { value: "mens-watches", label: "mens-watches", checked: false },
       { value: "womens-watches", label: "womens-watches", checked: false },
-      { value: "womens-bags", label: "womens-bags", checked: true },
+      { value: "womens-bags", label: "womens-bags", checked: false },
       { value: "womens-jewellery", label: "womens-jewellery", checked: false },
       { value: "sunglasses", label: "sunglasses", checked: false },
       { value: "automotive", label: "automotive", checked: false },
@@ -195,31 +195,39 @@ const filters = [
 ];
 
 export default function ProductList() {
+  const products = useSelector(selectAllProducts);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const dispatch = useDispatch();
   const [filter, setfilter] = useState({});
+  const [sort, setSort] = useState({});
   const handleSort = (e, option) => {
-    const newFilter = { ...filter, _sort: option.sort };
-    setfilter(newFilter);
-    dispatch(fetchProductsByFilterAsync(newFilter));
-    console.log(option.sort);
+    const sort = { _sort: option.sort, _order: option.order };
+    console.log({sort});
+    setSort(sort);
   };
 
   const handlefilter = (e, section, option) => {
-    const newFilter = {...filter}
-    if(e.target.checked){
-      newFilter[section.id] = option.value
+    const newFilter = { ...filter };
+    if (e.target.checked) {
+      if (newFilter[section.id]) {
+        newFilter[section.id].push(option.value);
+      } else {
+        newFilter[section.id] = [option.value];
+      }
+    } else {
+      const index = newFilter[section.id].findIndex(
+        el => el === option.value
+      )
+      newFilter[section.id].splice(index,1);
     }
-    else{
-      delete newFilter[section.id]      
-    }
-    setfilter(newFilter);   
+    console.log({ newFilter });
+    setfilter(newFilter);
   };
 
   useEffect(() => {
-    dispatch(fetchProductsByFilterAsync(filter));
-  }, [dispatch,filter]);
-  const products = useSelector(selectAllProducts);
+    dispatch(fetchProductsByFilterAsync({filter, sort}));
+  }, [dispatch, filter, sort]);
+  
 
   return (
     <div className="bg-white">
@@ -306,9 +314,7 @@ export default function ProductList() {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Desktop Filter*/}
-              <DesktopFilter                
-                handlefilter={handlefilter}
-              />
+              <DesktopFilter handlefilter={handlefilter} />
               {/* Product grid */}
               <div className="lg:col-span-3">
                 <ProductGrid products={products} />
