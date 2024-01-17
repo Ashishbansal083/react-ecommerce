@@ -206,15 +206,19 @@ export default function ProductList() {
   };
 
   const handlefilter = (e, section, option) => {
-    const newFilter = { ...filter, [section.id]: option.value };
-    setfilter(newFilter);
-    dispatch(fetchProductsByFilterAsync(newFilter));
-    console.log(section.id, option.value);
+    const newFilter = {...filter}
+    if(e.target.checked){
+      newFilter[section.id] = option.value
+    }
+    else{
+      delete newFilter[section.id]      
+    }
+    setfilter(newFilter);   
   };
 
   useEffect(() => {
-    dispatch(fetchAllProductsAsync());
-  }, [dispatch]);
+    dispatch(fetchProductsByFilterAsync(filter));
+  }, [dispatch,filter]);
   const products = useSelector(selectAllProducts);
 
   return (
