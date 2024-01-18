@@ -205,12 +205,12 @@ export default function ProductList() {
   const [sort, setSort] = useState({});
   const [page, setPage] = useState(1);
   const handleSort = (e, option) => {
-    const sort = { _sort: option.sort, _order: option.order };
+    const sort = { _sort: option.sort };
     console.log({ sort });
     setSort(sort);
   };
   const handlePage = (page) => {
-    console.log({page})
+    console.log({ page });
     setPage(page);
   };
 
@@ -233,9 +233,14 @@ export default function ProductList() {
   };
 
   useEffect(() => {
+    console.log({totalItems})
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
     dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);
+
+  useEffect(()=>{
+    setPage(1)
+  },[totalItems,sort])
 
   return (
     <div className="bg-white">
@@ -282,10 +287,10 @@ export default function ProductList() {
                               onClick={(e) => handleSort(e, option)}
                               className={classNames(
                                 option.current
-                                  ? "font-medium text-gray-900"
-                                  : "text-gray-500",
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm"
+                                  ? 'font-medium text-gray-900'
+                                  : 'text-gray-500',
+                                active ? 'bg-gray-100' : '',
+                                'block px-4 py-2 text-sm'
                               )}
                             >
                               {option.name}
@@ -334,7 +339,7 @@ export default function ProductList() {
                 handlePage={handlePage}
                 page={page}
                 setPage={setPage}
-                totalitems={totalItems}
+                // totalItems={totalItems}
               />
             </div>
           </section>
@@ -520,7 +525,7 @@ function DesktopFilter({ handlefilter }) {
   );
 }
 
-function Pagiation({ handlePage, page, setPage, totalitems }) {
+function Pagiation({ handlePage, page, setPage, totalItems=100 }) {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -540,12 +545,17 @@ function Pagiation({ handlePage, page, setPage, totalitems }) {
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-gray-700">
-            Showing{" "}
+          Showing{' '}
             <span className="font-medium">
               {(page - 1) * ITEMS_PER_PAGE + 1}
-            </span>{" "}
-            to <span className="font-medium">{page * ITEMS_PER_PAGE}</span> of{" "}
-            <span className="font-medium">{totalitems}</span> results
+            </span>{' '}
+            to{' '}
+            <span className="font-medium">
+              {page * ITEMS_PER_PAGE > totalItems
+                ? totalItems
+                : page * ITEMS_PER_PAGE}
+            </span>{' '}
+            of <span className="font-medium">{totalItems}</span> results
           </p>
         </div>
         <div>
@@ -561,17 +571,22 @@ function Pagiation({ handlePage, page, setPage, totalitems }) {
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
             </a>
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-            {Array.from({ length:Math.ceil(totalitems / ITEMS_PER_PAGE) }).map(
-              (el,index) => (
+            {Array.from({ length: Math.ceil(totalItems / ITEMS_PER_PAGE) }).map(
+              (el, index) => (
                 <div
-                  onClick={e=>handlePage(index+1)}
+                  onClick={(e) => handlePage(index + 1)}
                   aria-current="page"
-                  className={`relative cursor-pointer z-10 inline-flex items-center ${index+1===page?"bg-indigo-600 text-white" : "text-gray-900"}  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                  className={`relative cursor-pointer z-10 inline-flex items-center ${
+                    index + 1 === page
+                      ? 'bg-indigo-600 text-white'
+                      : 'text-gray-400'
+                  } px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                 >
-                  {index+1}
+                  {index + 1}
                 </div>
               )
             )}
+
 
             {/* <a
               href="#"
