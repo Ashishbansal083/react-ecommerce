@@ -5,10 +5,12 @@ import { useSelector, useDispatch } from 'react-redux';
 //   selectCount,
 // } from './authSlice';
 import { Link } from 'react-router-dom';
+import {useForm} from 'react-hook-form';
 
 const Signup = () => {
-    // const count = useSelector(selectCount);
-    // const dispatch = useDispatch(); 
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+  console.log(errors)
    
   
     return (
@@ -27,7 +29,8 @@ const Signup = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form noValidate className="space-y-6" onSubmit={handleSubmit((data)=>
+            {console.log(data)})}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
@@ -35,12 +38,11 @@ const Signup = () => {
               <div className="mt-2">
                 <input
                   id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
+                  {...register("email",{required:"email is required"})}
+                  type="email"                  
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
               </div>
             </div>
 
@@ -55,12 +57,11 @@ const Signup = () => {
               <div className="mt-2">
                 <input
                   id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
+                  {...register("password",{required:"password is required"})}
+                  type="password"                  
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
               </div>
             </div>
             <div>
@@ -73,13 +74,12 @@ const Signup = () => {
               
               <div className="mt-2">
                 <input
-                  id="confirm-password"
-                  name="confirm-password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
+                  id="confirmPassword"
+                  {...register("confirmPassword",{required:"confirmPassword is required"})}
+                  type="password"                  
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                {errors.confirmpassword && <p className='text-red-500'>{errors.confirmpassword.message}</p>}
               </div>
             </div>
 
