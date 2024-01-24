@@ -58,7 +58,7 @@ const Signup = () => {
                     {...register("email", {
                       required: "email is required",
                       pattern: {
-                        value: /^[A-Za-z]+$/i,
+                        value: /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi,
                         message: "email is not valid",
                       },
                     })}
