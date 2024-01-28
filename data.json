@@ -1844,494 +1844,592 @@
     {
       "value": "Apple",
       "label": "Apple",
-      "checked": false
+      "checked": false,
+      "id": "10c3"
     },
     {
       "value": "Samsung",
       "label": "Samsung",
-      "checked": false
+      "checked": false,
+      "id": "4573"
     },
     {
       "value": "OPPO",
       "label": "OPPO",
-      "checked": false
+      "checked": false,
+      "id": "5ba7"
     },
     {
       "value": "Huawei",
       "label": "Huawei",
-      "checked": false
+      "checked": false,
+      "id": "a35d"
     },
     {
       "value": "Microsoft Surface",
       "label": "Microsoft Surface",
-      "checked": false
+      "checked": false,
+      "id": "f522"
     },
     {
       "value": "Infinix",
       "label": "Infinix",
-      "checked": false
+      "checked": false,
+      "id": "690e"
     },
     {
       "value": "HP Pavilion",
       "label": "HP Pavilion",
-      "checked": false
+      "checked": false,
+      "id": "fab5"
     },
     {
       "value": "Impression of Acqua Di Gio",
       "label": "Impression of Acqua Di Gio",
-      "checked": false
+      "checked": false,
+      "id": "4641"
     },
     {
       "value": "Royal_Mirage",
       "label": "Royal_Mirage",
-      "checked": false
+      "checked": false,
+      "id": "af1a"
     },
     {
       "value": "Fog Scent Xpressio",
       "label": "Fog Scent Xpressio",
-      "checked": false
+      "checked": false,
+      "id": "1d0b"
     },
     {
       "value": "Al Munakh",
       "label": "Al Munakh",
-      "checked": false
+      "checked": false,
+      "id": "9e84"
     },
     {
       "value": "Lord - Al-Rehab",
       "label": "Lord - Al-Rehab",
-      "checked": false
+      "checked": false,
+      "id": "0c34"
     },
     {
       "value": "L'Oreal Paris",
       "label": "L'Oreal Paris",
-      "checked": false
+      "checked": false,
+      "id": "af48"
     },
     {
       "value": "Hemani Tea",
       "label": "Hemani Tea",
-      "checked": false
+      "checked": false,
+      "id": "e9b4"
     },
     {
       "value": "Dermive",
       "label": "Dermive",
-      "checked": false
+      "checked": false,
+      "id": "805d"
     },
     {
       "value": "ROREC White Rice",
       "label": "ROREC White Rice",
-      "checked": false
+      "checked": false,
+      "id": "f4be"
     },
     {
       "value": "Fair & Clear",
       "label": "Fair & Clear",
-      "checked": false
+      "checked": false,
+      "id": "760b"
     },
     {
       "value": "Saaf & Khaas",
       "label": "Saaf & Khaas",
-      "checked": false
+      "checked": false,
+      "id": "00e9"
     },
     {
       "value": "Bake Parlor Big",
       "label": "Bake Parlor Big",
-      "checked": false
+      "checked": false,
+      "id": "0336"
     },
     {
       "value": "Baking Food Items",
       "label": "Baking Food Items",
-      "checked": false
+      "checked": false,
+      "id": "cbd9"
     },
     {
       "value": "fauji",
       "label": "fauji",
-      "checked": false
+      "checked": false,
+      "id": "e086"
     },
     {
       "value": "Dry Rose",
       "label": "Dry Rose",
-      "checked": false
+      "checked": false,
+      "id": "c693"
     },
     {
       "value": "Boho Decor",
       "label": "Boho Decor",
-      "checked": false
+      "checked": false,
+      "id": "6439"
     },
     {
       "value": "Flying Wooden",
       "label": "Flying Wooden",
-      "checked": false
+      "checked": false,
+      "id": "b068"
     },
     {
       "value": "LED Lights",
       "label": "LED Lights",
-      "checked": false
+      "checked": false,
+      "id": "3488"
     },
     {
       "value": "luxury palace",
       "label": "luxury palace",
-      "checked": false
+      "checked": false,
+      "id": "d0be"
     },
     {
       "value": "Golden",
       "label": "Golden",
-      "checked": false
+      "checked": false,
+      "id": "4b35"
     },
     {
       "value": "Furniture Bed Set",
       "label": "Furniture Bed Set",
-      "checked": false
+      "checked": false,
+      "id": "0dba"
     },
     {
       "value": "Ratttan Outdoor",
       "label": "Ratttan Outdoor",
-      "checked": false
+      "checked": false,
+      "id": "d1c2"
     },
     {
       "value": "Kitchen Shelf",
       "label": "Kitchen Shelf",
-      "checked": false
+      "checked": false,
+      "id": "f46f"
     },
     {
       "value": "Multi Purpose",
       "label": "Multi Purpose",
-      "checked": false
+      "checked": false,
+      "id": "7ed7"
     },
     {
       "value": "AmnaMart",
       "label": "AmnaMart",
-      "checked": false
+      "checked": false,
+      "id": "5753"
     },
     {
       "value": "Professional Wear",
       "label": "Professional Wear",
-      "checked": false
+      "checked": false,
+      "id": "369e"
     },
     {
       "value": "Soft Cotton",
       "label": "Soft Cotton",
-      "checked": false
+      "checked": false,
+      "id": "13a0"
     },
     {
       "value": "Top Sweater",
       "label": "Top Sweater",
-      "checked": false
+      "checked": false,
+      "id": "b14c"
     },
     {
       "value": "RED MICKY MOUSE..",
       "label": "RED MICKY MOUSE..",
-      "checked": false
+      "checked": false,
+      "id": "bbf4"
     },
     {
       "value": "Digital Printed",
       "label": "Digital Printed",
-      "checked": false
+      "checked": false,
+      "id": "3948"
     },
     {
       "value": "Ghazi Fabric",
       "label": "Ghazi Fabric",
-      "checked": false
+      "checked": false,
+      "id": "24d4"
     },
     {
       "value": "IELGY",
       "label": "IELGY",
-      "checked": false
+      "checked": false,
+      "id": "b20c"
     },
     {
       "value": "IELGY fashion",
       "label": "IELGY fashion",
-      "checked": false
+      "checked": false,
+      "id": "686b"
     },
     {
       "value": "Synthetic Leather",
       "label": "Synthetic Leather",
-      "checked": false
+      "checked": false,
+      "id": "c2d9"
     },
     {
       "value": "Sandals Flip Flops",
       "label": "Sandals Flip Flops",
-      "checked": false
+      "checked": false,
+      "id": "e56f"
     },
     {
       "value": "Maasai Sandals",
       "label": "Maasai Sandals",
-      "checked": false
+      "checked": false,
+      "id": "ebcd"
     },
     {
       "value": "Arrivals Genuine",
       "label": "Arrivals Genuine",
-      "checked": false
+      "checked": false,
+      "id": "6968"
     },
     {
       "value": "Vintage Apparel",
       "label": "Vintage Apparel",
-      "checked": false
+      "checked": false,
+      "id": "316f"
     },
     {
       "value": "FREE FIRE",
       "label": "FREE FIRE",
-      "checked": false
+      "checked": false,
+      "id": "81e3"
     },
     {
       "value": "The Warehouse",
       "label": "The Warehouse",
-      "checked": false
+      "checked": false,
+      "id": "9caa"
     },
     {
       "value": "Sneakers",
       "label": "Sneakers",
-      "checked": false
+      "checked": false,
+      "id": "73f8"
     },
     {
       "value": "Rubber",
       "label": "Rubber",
-      "checked": false
+      "checked": false,
+      "id": "b98f"
     },
     {
       "value": "Naviforce",
       "label": "Naviforce",
-      "checked": false
+      "checked": false,
+      "id": "2ba3"
     },
     {
       "value": "SKMEI 9117",
       "label": "SKMEI 9117",
-      "checked": false
+      "checked": false,
+      "id": "ff49"
     },
     {
       "value": "Strap Skeleton",
       "label": "Strap Skeleton",
-      "checked": false
+      "checked": false,
+      "id": "81dd"
     },
     {
       "value": "Stainless",
       "label": "Stainless",
-      "checked": false
+      "checked": false,
+      "id": "7977"
     },
     {
       "value": "Eastern Watches",
       "label": "Eastern Watches",
-      "checked": false
+      "checked": false,
+      "id": "7d17"
     },
     {
       "value": "Luxury Digital",
       "label": "Luxury Digital",
-      "checked": false
+      "checked": false,
+      "id": "ba33"
     },
     {
       "value": "Watch Pearls",
       "label": "Watch Pearls",
-      "checked": false
+      "checked": false,
+      "id": "cb86"
     },
     {
       "value": "Bracelet",
       "label": "Bracelet",
-      "checked": false
+      "checked": false,
+      "id": "350c"
     },
     {
       "value": "LouisWill",
       "label": "LouisWill",
-      "checked": false
+      "checked": false,
+      "id": "7b0b"
     },
     {
       "value": "Copenhagen Luxe",
       "label": "Copenhagen Luxe",
-      "checked": false
+      "checked": false,
+      "id": "01eb"
     },
     {
       "value": "Steal Frame",
       "label": "Steal Frame",
-      "checked": false
+      "checked": false,
+      "id": "5c3a"
     },
     {
       "value": "Darojay",
       "label": "Darojay",
-      "checked": false
+      "checked": false,
+      "id": "8b05"
     },
     {
       "value": "Fashion Jewellery",
       "label": "Fashion Jewellery",
-      "checked": false
+      "checked": false,
+      "id": "ed0e"
     },
     {
       "value": "Cuff Butterfly",
       "label": "Cuff Butterfly",
-      "checked": false
+      "checked": false,
+      "id": "af77"
     },
     {
       "value": "Designer Sun Glasses",
       "label": "Designer Sun Glasses",
-      "checked": false
+      "checked": false,
+      "id": "756a"
     },
     {
       "value": "mastar watch",
       "label": "mastar watch",
-      "checked": false
+      "checked": false,
+      "id": "32bf"
     },
     {
       "value": "Car Aux",
       "label": "Car Aux",
-      "checked": false
+      "checked": false,
+      "id": "ca1d"
     },
     {
       "value": "W1209 DC12V",
       "label": "W1209 DC12V",
-      "checked": false
+      "checked": false,
+      "id": "f4e1"
     },
     {
       "value": "TC Reusable",
       "label": "TC Reusable",
-      "checked": false
+      "checked": false,
+      "id": "7838"
     },
     {
       "value": "Neon LED Light",
       "label": "Neon LED Light",
-      "checked": false
+      "checked": false,
+      "id": "a116"
     },
     {
       "value": "METRO 70cc Motorcycle - MR70",
       "label": "METRO 70cc Motorcycle - MR70",
-      "checked": false
+      "checked": false,
+      "id": "544a"
     },
     {
       "value": "BRAVE BULL",
       "label": "BRAVE BULL",
-      "checked": false
+      "checked": false,
+      "id": "71ee"
     },
     {
       "value": "shock absorber",
       "label": "shock absorber",
-      "checked": false
+      "checked": false,
+      "id": "a5db"
     },
     {
       "value": "JIEPOLLY",
       "label": "JIEPOLLY",
-      "checked": false
+      "checked": false,
+      "id": "3b3b"
     },
     {
       "value": "Xiangle",
       "label": "Xiangle",
-      "checked": false
+      "checked": false,
+      "id": "0e0d"
     },
     {
       "value": "lightingbrilliance",
       "label": "lightingbrilliance",
-      "checked": false
+      "checked": false,
+      "id": "6ab9"
     },
     {
       "value": "Ifei Home",
       "label": "Ifei Home",
-      "checked": false
+      "checked": false,
+      "id": "aa1b"
     },
     {
       "value": "DADAWU",
       "label": "DADAWU",
-      "checked": false
+      "checked": false,
+      "id": "81e8"
     },
     {
       "value": "YIOSI",
       "label": "YIOSI",
-      "checked": false
+      "checked": false,
+      "id": "2d2a"
     }
   ],
   "categories": [
     {
       "value": "smartphones",
       "label": "smartphones",
-      "checked": false
+      "checked": false,
+      "id": "322b"
     },
     {
       "value": "laptops",
       "label": "laptops",
-      "checked": false
+      "checked": false,
+      "id": "0017"
     },
     {
       "value": "fragrances",
       "label": "fragrances",
-      "checked": false
+      "checked": false,
+      "id": "8988"
     },
     {
       "value": "skincare",
       "label": "skincare",
-      "checked": false
+      "checked": false,
+      "id": "ac7c"
     },
     {
       "value": "groceries",
       "label": "groceries",
-      "checked": false
+      "checked": false,
+      "id": "cc5f"
     },
     {
       "value": "home-decoration",
       "label": "home-decoration",
-      "checked": false
+      "checked": false,
+      "id": "bc46"
     },
     {
       "value": "furniture",
       "label": "furniture",
-      "checked": false
+      "checked": false,
+      "id": "7c81"
     },
     {
       "value": "tops",
       "label": "tops",
-      "checked": false
+      "checked": false,
+      "id": "5e6a"
     },
     {
       "value": "womens-dresses",
       "label": "womens-dresses",
-      "checked": false
+      "checked": false,
+      "id": "e2ad"
     },
     {
       "value": "womens-shoes",
       "label": "womens-shoes",
-      "checked": false
+      "checked": false,
+      "id": "c881"
     },
     {
       "value": "mens-shirts",
       "label": "mens-shirts",
-      "checked": false
+      "checked": false,
+      "id": "b049"
     },
     {
       "value": "mens-shoes",
       "label": "mens-shoes",
-      "checked": false
+      "checked": false,
+      "id": "abd7"
     },
     {
       "value": "mens-watches",
       "label": "mens-watches",
-      "checked": false
+      "checked": false,
+      "id": "4677"
     },
     {
       "value": "womens-watches",
       "label": "womens-watches",
-      "checked": false
+      "checked": false,
+      "id": "6f4d"
     },
     {
       "value": "womens-bags",
       "label": "womens-bags",
-      "checked": false
+      "checked": false,
+      "id": "23d9"
     },
     {
       "value": "womens-jewellery",
       "label": "womens-jewellery",
-      "checked": false
+      "checked": false,
+      "id": "43f2"
     },
     {
       "value": "sunglasses",
       "label": "sunglasses",
-      "checked": false
+      "checked": false,
+      "id": "d654"
     },
     {
       "value": "automotive",
       "label": "automotive",
-      "checked": false
+      "checked": false,
+      "id": "fd4f"
     },
     {
       "value": "motorcycle",
       "label": "motorcycle",
-      "checked": false
+      "checked": false,
+      "id": "6aa0"
     },
     {
       "value": "lighting",
       "label": "lighting",
-      "checked": false
+      "checked": false,
+      "id": "70a9"
     }
   ],
   "users": [
@@ -2339,6 +2437,68 @@
       "id": "eaff",
       "email": "test@gmail.com",
       "password": "Qwerty@123"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "discountPercentage": 12.96,
+      "rating": 4.69,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/1/1.jpg",
+        "https://cdn.dummyjson.com/product-images/1/2.jpg",
+        "https://cdn.dummyjson.com/product-images/1/3.jpg",
+        "https://cdn.dummyjson.com/product-images/1/4.jpg",
+        "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+      ],
+      "quantity": 1
+    },
+    {
+      "id": "1",
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "discountPercentage": 12.96,
+      "rating": 4.69,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/1/1.jpg",
+        "https://cdn.dummyjson.com/product-images/1/2.jpg",
+        "https://cdn.dummyjson.com/product-images/1/3.jpg",
+        "https://cdn.dummyjson.com/product-images/1/4.jpg",
+        "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+      ],
+      "quantity": 1
+    },
+    {
+      "id": "1",
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "discountPercentage": 12.96,
+      "rating": 4.69,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/1/1.jpg",
+        "https://cdn.dummyjson.com/product-images/1/2.jpg",
+        "https://cdn.dummyjson.com/product-images/1/3.jpg",
+        "https://cdn.dummyjson.com/product-images/1/4.jpg",
+        "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+      ],
+      "quantity": 1
     }
   ]
 }

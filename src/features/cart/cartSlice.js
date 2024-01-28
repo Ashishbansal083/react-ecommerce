@@ -33,7 +33,7 @@ export const cartSlice = createSlice({
       })
       .addCase(addToCartAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.items += action.payload;
+        state.items.push(action.payload);
       });
   },
 });
@@ -41,7 +41,7 @@ export const cartSlice = createSlice({
 
 
 
-export const selectCount = (state) => state.counter.value;
+export const selectItems = (state) => state.cart.value;
 
 
 export default cartSlice.reducer;
