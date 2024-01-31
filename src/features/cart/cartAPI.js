@@ -19,3 +19,16 @@ export function fetchItemByUserId(userId) {
     resolve({data})}
   );
 }
+export function updateCart(update) {
+  return new Promise(async (resolve) =>{
+    const response = await fetch('http://localhost:8080/cart/'+update.id,
+    {
+      method:'PATCH',
+      body:JSON.stringify(update),
+      headers:{"content-type":'aplication/json'}
+
+    })
+    const data =  await response.json()
+    resolve({data})}
+  );
+}
