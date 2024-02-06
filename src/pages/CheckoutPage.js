@@ -9,67 +9,17 @@ import {
   selectItems,
   updateCartAsync,
 } from "../features/cart/cartSlice";
+import { selectLoggedInUser } from "../features/auth/authSlice";
+import { updateUserAsync } from "../features/auth/authSlice";
 
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "$32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
-];
-
-const addresses = [
-  {
-    name: "john",
-    street: "12 ab road",
-    city: "delhi",
-    pincode: "110001",
-    state: "delhi",
-    phone: 12345051,
-  },
-  {
-    name: "deer",
-    street: "12 bc road",
-    city: "ynr",
-    pincode: "110001",
-    state: "delhi",
-    phone: 12345051,
-  },
-  {
-    name: "bob",
-    street: "11 ab road",
-    city: "delhi",
-    pincode: "110001",
-    state: "delhi",
-    phone: 12345051,
-  },
-];
 const CheckoutPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const user = useSelector(selectLoggedInUser);
+  console.log(user);
   const cart = useSelector(selectItems);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
@@ -96,9 +46,12 @@ const CheckoutPage = () => {
               className="bg-white px-5 py-5"
               noValidate
               onSubmit={handleSubmit((data) => {
-                console.log(data)
+                console.log(data);
                 dispatch(
-                  // checkUserAsync({ email: data.email, password: data.password })
+                  updateUserAsync({
+                    ...user,
+                    addresses: [...user.addresses, data],
+                  })
                 );
               })}
             >
@@ -158,7 +111,7 @@ const CheckoutPage = () => {
                         Phone
                       </label>
                       <div className="mt-2">
-                      <input
+                        <input
                           id="phone"
                           {...register("phone", {
                             required: "phone is required",
@@ -269,7 +222,7 @@ const CheckoutPage = () => {
                     Choose from existing addresses
                   </p>
                   <ul role="list">
-                    {addresses.map((address) => (
+                    {user.addresses.map((address) => (
                       <li
                         key={address.email}
                         className="flex justify-between gap-x-6 py-5 border-b border-gray-900/10"
