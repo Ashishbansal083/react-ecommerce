@@ -19,7 +19,7 @@ const CheckoutPage = () => {
     formState: { errors },
   } = useForm();
   const user = useSelector(selectLoggedInUser);
-  console.log(user);
+  console.log(user.addresses);
   const cart = useSelector(selectItems);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
