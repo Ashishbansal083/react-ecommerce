@@ -50,7 +50,7 @@ const CheckoutPage = () => {
                 dispatch(
                   updateUserAsync({
                     ...user,
-                    addresses: [...user.addresses, data],
+                    addresses: [...user.addresses, data]
                   })
                 );
               })}
