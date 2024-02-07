@@ -12,14 +12,17 @@ import {
 import { selectLoggedInUser } from "../features/auth/authSlice";
 import { updateUserAsync } from "../features/auth/authSlice";
 
+
 const CheckoutPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const user = useSelector(selectLoggedInUser);
-  console.log(user.addresses);
+  const [selectedAddress,setselectedAddress] = useState(null);
+  const [paymentMethod,setpaymentMethod] = useState('cash');  
   const cart = useSelector(selectItems);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
@@ -35,6 +38,12 @@ const CheckoutPage = () => {
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
   };
+  const handleAddress=(e)=>{
+    setselectedAddress(user.addresses[e.target.value])
+  }
+  const handlePayment=(e)=>{
+    setpaymentMethod(e.target.value)
+  }
 
   return (
     <>
@@ -53,6 +62,7 @@ const CheckoutPage = () => {
                     addresses: [...user.addresses, data]
                   })
                 );
+                reset();
               })}
             >
               <div className="space-y-12">
@@ -222,14 +232,16 @@ const CheckoutPage = () => {
                     Choose from existing addresses
                   </p>
                   <ul role="list">
-                    {user.addresses.map((address) => (
+                    {user.addresses.map((address,index) => (
                       <li
-                        key={address.email}
+                        key={index}
                         className="flex justify-between gap-x-6 py-5 border-b border-gray-900/10"
                       >
                         <div className="flex min-w-0 gap-x-4 ">
                           <input
                             name="address"
+                            onChange={handleAddress}
+                            value={index}
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
@@ -271,6 +283,8 @@ const CheckoutPage = () => {
                           <input
                             id="cash"
                             name="payments"
+                            onChange={handlePayment}
+                            value='cash'
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
@@ -285,6 +299,8 @@ const CheckoutPage = () => {
                           <input
                             id="card"
                             name="payments"
+                            onChange={handlePayment}
+                            value='card'
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
