@@ -11,8 +11,7 @@ import {
 } from "../features/cart/cartSlice";
 import { selectLoggedInUser } from "../features/auth/authSlice";
 import { updateUserAsync } from "../features/auth/authSlice";
-import { createOrderAsync } from "../features/order/orderSlice";
-
+import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
 
 const CheckoutPage = () => {
   const {
@@ -22,8 +21,9 @@ const CheckoutPage = () => {
     formState: { errors },
   } = useForm();
   const user = useSelector(selectLoggedInUser);
-  const [selectedAddress,setselectedAddress] = useState(null);
-  const [paymentMethod,setpaymentMethod] = useState('cash');  
+  const currentOrder = useSelector(selectCurrentOrder);
+  const [selectedAddress, setselectedAddress] = useState(null);
+  const [paymentMethod, setpaymentMethod] = useState("cash");
   const cart = useSelector(selectItems);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
@@ -39,20 +39,29 @@ const CheckoutPage = () => {
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
   };
-  const handleAddress=(e)=>{
-    setselectedAddress(user.addresses[e.target.value])
-  }
-  const handlePayment=(e)=>{
-    setpaymentMethod(e.target.value)
-  }
-  const handleOrder=()=>{
-    const order = {items,totalAmount,totalItems,user,paymentMethod,selectedAddress}
-    dispatch(createOrderAsync(order))
-  }
+  const handleAddress = (e) => {
+    setselectedAddress(user.addresses[e.target.value]);
+  };
+  const handlePayment = (e) => {
+    setpaymentMethod(e.target.value);
+  };
+  const handleOrder = () => {
+    const order = {
+      items,
+      totalAmount,
+      totalItems,
+      user,
+      paymentMethod,
+      selectedAddress,
+      status:"pending",
+    };
+    dispatch(createOrderAsync(order));
+  };
 
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
       <div className="mx-auto max-w-7xl mt-10 px-4 py-6 sm:px-6 lg:px-8 bg-white">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5 ">
           <div className="lg:col-span-3">
@@ -64,7 +73,7 @@ const CheckoutPage = () => {
                 dispatch(
                   updateUserAsync({
                     ...user,
-                    addresses: [...user.addresses, data]
+                    addresses: [...user.addresses, data],
                   })
                 );
                 reset();
@@ -237,7 +246,7 @@ const CheckoutPage = () => {
                     Choose from existing addresses
                   </p>
                   <ul role="list">
-                    {user.addresses.map((address,index) => (
+                    {user.addresses.map((address, index) => (
                       <li
                         key={index}
                         className="flex justify-between gap-x-6 py-5 border-b border-gray-900/10"
@@ -289,8 +298,8 @@ const CheckoutPage = () => {
                             id="cash"
                             name="payments"
                             onChange={handlePayment}
-                            value='cash'
-                            checked={paymentMethod === 'cash'}
+                            value="cash"
+                            checked={paymentMethod === "cash"}
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
@@ -306,8 +315,8 @@ const CheckoutPage = () => {
                             id="card"
                             name="payments"
                             onChange={handlePayment}
-                            value='card'
-                            checked={paymentMethod === 'card'}
+                            value="card"
+                            checked={paymentMethod === "card"}
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
@@ -407,7 +416,7 @@ const CheckoutPage = () => {
                 </p>
                 <div className="mt-6">
                   <div
-                    onClick={handleOrder}                    
+                    onClick={handleOrder}
                     className="flex items-center cursor-pointer justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
                     Order now
