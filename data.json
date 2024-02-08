@@ -2497,66 +2497,6 @@
       "user": "eaff"
     },
     {
-      "id": "2a40",
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/2/1.jpg",
-        "https://cdn.dummyjson.com/product-images/2/2.jpg",
-        "https://cdn.dummyjson.com/product-images/2/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": "a3f3"
-    },
-    {
-      "id": "1ad1",
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/2/1.jpg",
-        "https://cdn.dummyjson.com/product-images/2/2.jpg",
-        "https://cdn.dummyjson.com/product-images/2/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": "a3f3"
-    },
-    {
-      "id": "702a",
-      "title": "Samsung Galaxy Book",
-      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-      "price": 1499,
-      "discountPercentage": 4.15,
-      "rating": 4.25,
-      "stock": 50,
-      "brand": "Samsung",
-      "category": "laptops",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/7/1.jpg",
-        "https://cdn.dummyjson.com/product-images/7/2.jpg",
-        "https://cdn.dummyjson.com/product-images/7/3.jpg",
-        "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-      ],
-      "quantity": 3,
-      "user": "a3f3"
-    },
-    {
       "id": "031a",
       "title": "iPhone X",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
