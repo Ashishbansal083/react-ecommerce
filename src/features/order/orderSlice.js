@@ -4,7 +4,7 @@ import { createOrder } from './orderAPI';
 const initialState = {
   orders: [],
   status: 'idle',
-  currentOrder:null
+  currentOrder:null,
 }; 
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -26,8 +26,8 @@ export const orderSlice = createSlice({
   initialState,
   reducer:{
     resetOrder:(state)=>{
-      state.currentOrder=null;
-    }
+      state.currentOrder=null;      
+    },
   },
   // The `reducers` field lets us define reducers and generate associated actions
     

@@ -23,8 +23,7 @@ const CheckoutPage = () => {
   const user = useSelector(selectLoggedInUser);
   const currentOrder = useSelector(selectCurrentOrder);
   const [selectedAddress, setselectedAddress] = useState(null);
-  const [paymentMethod, setpaymentMethod] = useState("cash");
-  const cart = useSelector(selectItems);
+  const [paymentMethod, setpaymentMethod] = useState("cash");  
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
   const items = useSelector(selectItems);
