@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchLoggedInUserOrder } from './userAPI';
+import { fetchLoggedInUserOrders } from './userAPI';
 
 const initialState = {
   userOrders: [],
@@ -11,26 +11,26 @@ const initialState = {
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
-export const fetchLoggedInUserOrderAsync = createAsyncThunk(
-  'user/fetchLoggedInUser',
+export const fetchLoggedInUserOrdersAsync = createAsyncThunk(
+  'user/fetchLoggedInUserOrders',
   async (userId) => {
-    const response = await fetchLoggedInUserOrder(userId);
+    const response = await fetchLoggedInUserOrders(userId);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
 );
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const userSlice = createSlice({
+  name: 'user',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
     
   extraReducers: (builder) => {
     builder
-      .addCase(fetchLoggedInUserOrderAsync.pending, (state) => {
+      .addCase(fetchLoggedInUserOrdersAsync.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchLoggedInUserOrderAsync.fulfilled, (state, action) => {
+      .addCase(fetchLoggedInUserOrdersAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.userOrders = action.payload;
       });
@@ -38,6 +38,7 @@ export const counterSlice = createSlice({
 });
 
 export const { increment } = userSlice.actions;
+export const selectUserOrders = (state) => state.user.userOrders;
 
 
 
