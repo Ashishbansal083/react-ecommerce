@@ -22,7 +22,7 @@ const navigation = [
   { name: "Team", href: "#", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", link: "/" },
+  { name: "My Profile", link: "/profile" },
   { name: "Settings", link: "/" },
   { name: "Sign out", link: "/login" },
   { name: "My Orders", link: "/orders" },
