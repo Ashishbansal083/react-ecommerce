@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectLoggedInUser } from "../../auth/authSlice";
 
-export default function Counter() {
+export default function UserProfile() {
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 

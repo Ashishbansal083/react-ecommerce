@@ -20,7 +20,7 @@ import { fetchItemByUserIdAsync } from "./features/cart/cartSlice";
 import PageNotFound from "./pages/404";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import UserOrdersPage from "./pages/UserOrdersPage";
-import UserProfile from "./features/user/components/UserProfile.js"
+import UserProfilePage from "./pages/UserProfilePage.js";
 
 const router = createBrowserRouter([
   {
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: (
-      <UserProfile></UserProfile>
+      <UserProfilePage></UserProfilePage>
     ),
   },
   {
