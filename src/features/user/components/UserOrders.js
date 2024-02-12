@@ -4,11 +4,12 @@ import { fetchLoggedInUserOrders } from "../userAPI";
 import { fetchLoggedInUserOrdersAsync, selectUserOrders } from "../userSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
 import { Link } from "react-router-dom";
+import {selectUserInfo} from '../userSlice';
 
 export default function UserOrders() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const orders = useSelector(selectUserOrders);
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync(user?.id));

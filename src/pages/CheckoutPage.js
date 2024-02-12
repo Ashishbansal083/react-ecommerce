@@ -10,7 +10,7 @@ import {
   updateCartAsync,
 } from "../features/cart/cartSlice";
 import { selectLoggedInUser } from "../features/auth/authSlice";
-import { updateUserAsync } from "../features/auth/authSlice";
+import { updateUserAsync } from "../features/user/userSlice";
 import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
 
 const CheckoutPage = () => {
