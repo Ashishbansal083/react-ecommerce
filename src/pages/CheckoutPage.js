@@ -9,7 +9,7 @@ import {
   selectItems,
   updateCartAsync,
 } from "../features/cart/cartSlice";
-import { selectLoggedInUser } from "../features/auth/authSlice";
+import { selectUserInfo } from "../features/user/userSlice";
 import { updateUserAsync } from "../features/user/userSlice";
 import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
 
@@ -20,7 +20,7 @@ const CheckoutPage = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const currentOrder = useSelector(selectCurrentOrder);
   const [selectedAddress, setselectedAddress] = useState(null);
   const [paymentMethod, setpaymentMethod] = useState("cash");  
