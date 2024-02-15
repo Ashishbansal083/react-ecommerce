@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectLoggedInUser } from "../../auth/authSlice";
 import {
   selectUserInfo,
-  updateUserAsync,
-  fetchLoggedInUserAsync,
+  updateUserAsync,  
 } from "../userSlice";
 import { useForm } from "react-hook-form";
 
@@ -28,7 +26,7 @@ export default function UserProfile() {
     setSelectedEditIndex(-1);
     console.log(newUser.addresses);
   };
-  const handleRemove = (index) => {
+  const handleRemove = (e,index) => {
     const newUser = { ...user, addresses: [...user.addresses] };
     newUser.addresses.splice(index, 1);
     dispatch(updateUserAsync(newUser));
@@ -448,7 +446,7 @@ export default function UserProfile() {
                     Edit
                   </button>
                   <button
-                    onClick={(e) => handleRemove(index)}
+                    onClick={(e) => handleRemove(e,index)}
                     type="button"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
                   >
