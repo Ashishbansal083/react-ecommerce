@@ -2455,11 +2455,20 @@
       "password": "Bansalgashi083@",
       "addresses": [
         {
-          "name": "Ashish Bansal",
+          "name": "AshuBansal",
           "email": "bansalgashi083@gmail.com",
           "phone": "09050758499",
-          "street": "Bilaspur (Yamunanagar)",
           "city": "Jagadhri",
+          "street": "Bilaspur (Yamunanagar)",
+          "state": "Haryana",
+          "pinCode": "135102"
+        },
+        {
+          "name": "ashu",
+          "email": "ashu083@gmail.com",
+          "phone": "09017067995",
+          "street": "Bilaspur (Yamunanagar)",
+          "city": "Jyamunanager",
           "state": "Haryana",
           "pinCode": "135102"
         }
