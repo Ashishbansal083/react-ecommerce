@@ -12,7 +12,7 @@ import {
   RouterProvider,  
 } from "react-router-dom";
 import ProductDetail from "./features/product/components/ProductDetail";
-import ProductDetailPage from "./pages/ProductDetailPage";
+import ProductDetailPage from "./pages/ProductDetailPage.js";
 import Protected from "./features/auth/components/Protected";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoggedInUser } from "./features/auth/authSlice";
@@ -24,6 +24,9 @@ import UserProfilePage from "./pages/UserProfilePage.js";
 import {fetchLoggedInUserAsync} from './features/user/userSlice.js'
 import Logout from "./features/auth/components/Logout.js";
 import ForgotPasswordPage from "./pages/ForgotPasswordpage.js";
+import AdminHome from "./pages/AdminHome.js";
+import ProtectedAdmin from "./features/auth/components/ProtectedAdmin.js";
+import AdminProductDetailPage from "./pages/AdminProductDetailPage copy.js";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +35,14 @@ const router = createBrowserRouter([
       <Protected>
         <Home></Home>
       </Protected>
+    ),
+  },
+  {
+    path: "/admin",
+    element: (
+      <ProtectedAdmin>
+        <AdminHome></AdminHome>
+      </ProtectedAdmin>
     ),
   },
   {
@@ -64,6 +75,14 @@ const router = createBrowserRouter([
       <Protected>
         <ProductDetailPage></ProductDetailPage>,
       </Protected>
+    ),
+  },
+  {
+    path: "/admin/product-detail/:id",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductDetailPage></AdminProductDetailPage>,
+      </ProtectedAdmin>
     ),
   },
   {
