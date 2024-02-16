@@ -2437,6 +2437,7 @@
       "id": "eaff",
       "email": "test@gmail.com",
       "password": "Qwerty@123",
+      "role": "user",
       "addresses": [
         {
           "name": "Ashish Bansal",
@@ -2453,18 +2454,10 @@
       "id": "a3f3",
       "email": "bansalgashi083@gmail.com",
       "password": "Bansalgashi083@",
+      "role": "user",
       "addresses": [
         {
-          "name": "Ashish anil bansal",
-          "email": "bansalgashi083@gmail.com",
-          "phone": "09050758499",
-          "city": "Jagadhri",
-          "street": "Bilaspur (Yamunanagar)",
-          "state": "Haryana",
-          "pinCode": "135102"
-        },
-        {
-          "name": "rajat Bansal",
+          "name": "Ashish Bansal ashish",
           "email": "bansalgashi083@gmail.com",
           "phone": "09050758499",
           "street": "Bilaspur (Yamunanagar)",
@@ -2473,6 +2466,13 @@
           "pinCode": "135102"
         }
       ]
+    },
+    {
+      "id": "2b8d",
+      "email": "admin@gmail.com",
+      "password": "Admin@123",
+      "addresses": [],
+      "role": "admin"
     }
   ],
   "cart": [

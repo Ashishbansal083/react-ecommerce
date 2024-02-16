@@ -65,6 +65,9 @@ export default function UserProfile() {
         <h3 className="text-l font-bold tracking-tight text-gray-900 mx-5 mt-5 ">
           Email Adderess : {user?.email}
         </h3>
+        {user.role === 'admin' && <h3 className="text-l font-bold tracking-tight text-gray-900 mx-5 mt-5 ">
+          Role : {user?.role}
+        </h3>}
 
         <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
           <button
