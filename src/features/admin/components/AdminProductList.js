@@ -187,11 +187,11 @@ export default function AdminProductList() {
               {/* Desktop Filter*/}
               <DesktopFilter handlefilter={handlefilter} filters={filters} />
               {/* Product grid */}
-              
+
               <div className="lg:col-span-3">
-              <div>
+                <div>
                   <button className="rounded-md bg-green-600 px-3 py-2 my-1 mx-10 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
-                    Add New Product
+                    <Link to="/admin/product-form">Add New Product</Link>
                   </button>
                 </div>
                 <ProductGrid products={products} />
