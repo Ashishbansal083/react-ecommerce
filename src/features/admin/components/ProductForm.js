@@ -1,7 +1,12 @@
 import React from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { useSelector } from "react-redux";
+import { selectBrands } from "../../product/productSlice";
+import {selectCategories} from "../../product/productSlice"
 
 const ProductForm = () => {
+  const categories = useSelector(selectCategories);
+  const brands = useSelector(selectBrands);
   return (
     <div className="mx-auto max-w-7xl mt-10 px-4 py-6 sm:px-6 lg:px-8 bg-white">
       <form>
@@ -50,6 +55,22 @@ const ProductForm = () => {
                 <p className="mt-3 text-sm leading-6 text-gray-600">
                   Write a few sentences about the product.
                 </p>
+              </div>
+              <div className="col-span-full">
+                <label
+                  htmlFor="brand"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Brand
+                </label>
+                <div className="mt-2">
+                 <select>
+                 <option value="">-----Choose Brand-----</option>
+                  {brands.map((brand)=>
+                    <option value={brand.value}>{brand.label}</option>
+                  )}
+                 </select>
+                </div>                
               </div>
 
               <div className="sm:col-span-2 sm:col-start-1">
@@ -151,6 +172,24 @@ const ProductForm = () => {
                       type="text"
                       name="image2"
                       id="image2"
+                      className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="sm:col-span-4">
+                <label
+                  htmlFor="image3"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Image3
+                </label>
+                <div className="mt-2">
+                  <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                    <input
+                      type="text"
+                      name="image3"
+                      id="image3"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     />
                   </div>
