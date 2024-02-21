@@ -14,6 +14,17 @@ export function fetchProductById(id) {
     resolve({data})}
   );
 }
+export function createProduct(product) {
+  return new Promise(async (resolve) =>{
+    const response = await fetch('http://localhost:8080/products',{
+      method:'POST',
+      body:JSON.stringify(product),
+      headers:{"content-type":'aplication/json'}
+    })
+    const data =  await response.json()
+    resolve({data})}
+  );
+}
 
 export function fetchProductsByFilter(filter,sort,pagination) {
   // filter ={"category":["smartphone","laptops"]}

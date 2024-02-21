@@ -1,7 +1,7 @@
 import React from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
-import { selectBrands } from "../../product/productSlice";
+import { createProductAsync, selectBrands } from "../../product/productSlice";
 import { selectCategories } from "../../product/productSlice";
 import { useForm } from "react-hook-form";
 
@@ -26,6 +26,7 @@ const ProductForm = () => {
         delete product['image2']
         delete product['image3']
         console.log(product)
+        dispatch(createProductAsync(product))
       })}>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">

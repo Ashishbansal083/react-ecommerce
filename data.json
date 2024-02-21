@@ -1838,6 +1838,24 @@
         "https://cdn.dummyjson.com/product-images/100/3.jpg",
         "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg"
       ]
+    },
+    {
+      "id": "93cb",
+      "title": "oppo A53",
+      "description": "camera 8 mp",
+      "brand": "OPPO",
+      "category": "smartphones",
+      "price": "4500",
+      "discountPercentage": "5",
+      "stock": "51",
+      "thumbnail": "ashsijs@gmail.com",
+      "images": [
+        "http/gjgiglih",
+        "kjshiludchuhs",
+        "mbjuhihihoi",
+        "ashsijs@gmail.com"
+      ],
+      "rating": 0
     }
   ],
   "brands": [
