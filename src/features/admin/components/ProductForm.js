@@ -1,33 +1,71 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
-import { createProductAsync, selectBrands } from "../../product/productSlice";
+import {
+  createProductAsync,
+  fetchProductByIdAsync,
+  selectBrands,
+  selectProductById,
+} from "../../product/productSlice";
 import { selectCategories } from "../../product/productSlice";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+import { fetchProductById } from "../../product/productAPI";
 
 const ProductForm = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     watch,
     formState: { errors },
   } = useForm();
   const categories = useSelector(selectCategories);
   const brands = useSelector(selectBrands);
   const dispatch = useDispatch();
+  const params = useParams();
+  const selectedProduct = useSelector(selectProductById);
+  useEffect(() => {
+    if (params.id) {
+      dispatch(fetchProductByIdAsync(params.id));
+    }
+  }, [params.id, dispatch]);
+  useEffect(() => {
+    if (selectedProduct) {
+      setValue("title", selectedProduct.title);
+      setValue("description", selectedProduct.description);
+      setValue("price", selectedProduct.price);
+      setValue("rating", selectedProduct.rating);
+      setValue("discountPercentage", selectedProduct.discountPercentage);
+      setValue("thumbnail", selectedProduct.thumbnail);
+      setValue("stock", selectedProduct.stock);
+      setValue("images", selectedProduct.images);
+      setValue("brand", selectedProduct.brand);
+      setValue("category", selectedProduct.category);
+    }
+  }, [selectedProduct, setValue]);
   return (
     <div className="mx-auto max-w-7xl mt-10 px-4 py-6 sm:px-6 lg:px-8 bg-white">
-      <form 
-      onSubmit={handleSubmit((data) => {
-        const product = {...data}
-        product.images = [product.image1,product.image2,product.image3,product.thumbnail]
-        product.rating = 0;
-        delete product['image1']
-        delete product['image2']
-        delete product['image3']
-        console.log(product)
-        dispatch(createProductAsync(product))
-      })}>
+      <form
+        onSubmit={handleSubmit((data) => {
+          const product = { ...data };
+          product.images = [
+            product.image1,
+            product.image2,
+            product.image3,
+            product.thumbnail,
+          ];
+          product.rating = 0;
+          delete product["image1"];
+          delete product["image2"];
+          delete product["image3"];
+          product.price=+product.price;
+          product.discountPercentage=+product.discountPercentage;
+          product.stock=+product.stock;
+          console.log(product);
+          dispatch(createProductAsync(product));
+        })}
+      >
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -253,7 +291,8 @@ const ProductForm = () => {
                       type="text"
                       {...register("image3", {
                         required: "image3 is required",
-                      })}                      id="image3"
+                      })}
+                      id="image3"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     />
                   </div>
