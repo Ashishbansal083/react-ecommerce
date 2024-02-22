@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  clearSelectedProduct,
   createProductAsync,
   fetchProductByIdAsync,
   selectBrands,
   selectProductById,
+  updateProductAsync,
 } from "../../product/productSlice";
 import { selectCategories } from "../../product/productSlice";
 import { useForm } from "react-hook-form";
@@ -28,10 +30,12 @@ const ProductForm = () => {
   useEffect(() => {
     if (params.id) {
       dispatch(fetchProductByIdAsync(params.id));
+    }else{
+      dispatch(clearSelectedProduct())
     }
   }, [params.id, dispatch]);
   useEffect(() => {
-    if (selectedProduct) {
+    if (selectedProduct && params.id) {
       setValue("title", selectedProduct.title);
       setValue("description", selectedProduct.description);
       setValue("price", selectedProduct.price);
@@ -39,11 +43,13 @@ const ProductForm = () => {
       setValue("discountPercentage", selectedProduct.discountPercentage);
       setValue("thumbnail", selectedProduct.thumbnail);
       setValue("stock", selectedProduct.stock);
-      setValue("images", selectedProduct.images);
+      setValue("image1", selectedProduct.images[0]);
+      setValue("image2", selectedProduct.images[1]);
+      setValue("image3", selectedProduct.images[2]);
       setValue("brand", selectedProduct.brand);
       setValue("category", selectedProduct.category);
     }
-  }, [selectedProduct, setValue]);
+  }, [selectedProduct, setValue,params.id]);
   return (
     <div className="mx-auto max-w-7xl mt-10 px-4 py-6 sm:px-6 lg:px-8 bg-white">
       <form
@@ -55,7 +61,6 @@ const ProductForm = () => {
             product.image3,
             product.thumbnail,
           ];
-          product.rating = 0;
           delete product["image1"];
           delete product["image2"];
           delete product["image3"];
@@ -63,7 +68,15 @@ const ProductForm = () => {
           product.discountPercentage=+product.discountPercentage;
           product.stock=+product.stock;
           console.log(product);
-          dispatch(createProductAsync(product));
+          if(params.id){
+            product.id=params.id;
+            product.rating = selectedProduct.rating || 0;
+
+            dispatch(updateProductAsync(product));
+          }else{
+            dispatch(createProductAsync(product));
+          }
+          
         })}
       >
         <div className="space-y-12">

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchAllProducts,fetchProductsByFilter,fetchBrands,fetchCategories,fetchProductById,createProduct } from './productAPI';
+import { fetchAllProducts,fetchProductsByFilter,fetchBrands,fetchCategories,fetchProductById,createProduct,updateProduct } from './productAPI';
 
 const initialState = {
   products: [],
@@ -63,10 +63,24 @@ export const fetchCategoriesAsync = createAsyncThunk(
     return response.data;
   }
 );
+export const updateProductAsync = createAsyncThunk(
+  'product/updateProduct',
+  async (update) => {
+    const response = await updateProduct(update);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
 
 export const productSlice = createSlice({
   name: 'product',
   initialState,
+  reducers:{
+    clearSelectedProduct:(state)=>{
+      state.selectedProduct=null
+    }
+  },
   // The `reducers` field lets us define reducers and generate associated actions
  
   extraReducers: (builder) => {
@@ -113,12 +127,20 @@ export const productSlice = createSlice({
       .addCase(createProductAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.products.push(action.payload);
+      })
+      .addCase(updateProductAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(updateProductAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        const index = state.products.findIndex(product=>product.id===action.payload.id)
+        state.products[index]=action.payload;        
       });
   },
 });
 
 
-
+export const {clearSelectedProduct} = productSlice.actions;
 export const selectAllProducts = (state) => state.product.products;
 export const selectProductById  = (state) => state.product.selectedProduct;
 export const selectBrands = (state) => state.product.brands;
