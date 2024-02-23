@@ -19,6 +19,7 @@ const ProductForm = () => {
     register,
     handleSubmit,
     setValue,
+    reset,
     watch,
     formState: { errors },
   } = useForm();
@@ -50,11 +51,17 @@ const ProductForm = () => {
       setValue("category", selectedProduct.category);
     }
   }, [selectedProduct, setValue,params.id]);
+  const handleDelete=()=>{
+    const product = {...selectedProduct}
+    product.deleted = true;
+    dispatch(updateProductAsync(product))
+  }
   return (
     <div className="mx-auto max-w-7xl mt-10 px-4 py-6 sm:px-6 lg:px-8 bg-white">
       <form
         onSubmit={handleSubmit((data) => {
           const product = { ...data };
+          product.rating = 0;
           product.images = [
             product.image1,
             product.image2,
@@ -73,8 +80,10 @@ const ProductForm = () => {
             product.rating = selectedProduct.rating || 0;
 
             dispatch(updateProductAsync(product));
+            reset();
           }else{
             dispatch(createProductAsync(product));
+            reset();
           }
           
         })}
@@ -200,11 +209,15 @@ const ProductForm = () => {
                 </label>
                 <div className="mt-2">
                   <input
-                    type="number"
+                    type="text"
                     {...register("discountPercentage", {
                       required: "discountPercentage is required",
-                      min: 0,
-                      max: 100,
+                      pattern: {
+                        value: /^(100(\.0{1,2})?|\d{0,2}(\.\d{1,2})?)$/,
+                        message: "Please enter a valid discount percentage",
+                      },
+                      min: 0.0,
+                      max: 100.0,
                     })}
                     id="discountPercentage"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -458,6 +471,13 @@ const ProductForm = () => {
           >
             Cancel
           </button>
+          {selectedProduct && <button
+            type="submit"
+            onClick={handleDelete()}
+            className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+          >
+            Delete
+          </button>}
           <button
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
