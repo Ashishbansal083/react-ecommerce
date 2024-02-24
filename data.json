@@ -3772,6 +3772,54 @@
         "pinCode": "135102"
       },
       "status": "pending"
+    },
+    {
+      "id": "c2a8",
+      "items": [
+        {
+          "id": "95c6",
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 280,
+          "discountPercentage": 17.91,
+          "rating": 4.3,
+          "stock": 123,
+          "brand": "OPPO",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/4/1.jpg",
+            "https://cdn.dummyjson.com/product-images/4/2.jpg",
+            "https://cdn.dummyjson.com/product-images/4/3.jpg",
+            "https://cdn.dummyjson.com/product-images/4/4.jpg",
+            "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+          ],
+          "quantity": 5,
+          "user": "a3f3"
+        }
+      ],
+      "totalAmount": 1150,
+      "totalItems": 5,
+      "user": {
+        "id": "a3f3",
+        "email": "bansalgashi083@gmail.com",
+        "password": "Bansalgashi083@",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Ashish Bansal ashish",
+            "email": "bansalgashi083@gmail.com",
+            "phone": "09050758499",
+            "street": "Bilaspur (Yamunanagar)",
+            "city": "Jagadhri",
+            "state": "Haryana",
+            "pinCode": "135102"
+          }
+        ]
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": null,
+      "status": "pending"
     }
   ]
 }
