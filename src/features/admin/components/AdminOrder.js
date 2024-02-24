@@ -8,7 +8,12 @@ const AdminOrder = () => {
     const [page,setPage] = useState(1);
     const dispatch = useDispatch();
     const orders = useSelector(selectOrders);
+    console.log(orders);
+    
     const totalOrders = useSelector(selectTotalOrders)
+    console.log(totalOrders);
+
+    
     useEffect(() => {        
         const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
         dispatch(fetchAllOrdersAsync(pagination ));
