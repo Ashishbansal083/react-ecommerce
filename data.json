@@ -2568,7 +2568,7 @@
         "state": "Haryana",
         "pinCode": "135102"
       },
-      "status": "pending"
+      "status": "delivered"
     },
     {
       "id": "6301",
@@ -2640,7 +2640,7 @@
         "state": "Haryana",
         "pinCode": "135102"
       },
-      "status": "pending"
+      "status": "cencelled"
     },
     {
       "id": "ef65",
@@ -2712,7 +2712,7 @@
         "state": "Haryana",
         "pinCode": "135102"
       },
-      "status": "pending"
+      "status": "dispatched"
     },
     {
       "id": "1525",
