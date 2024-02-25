@@ -125,7 +125,8 @@
         "https://cdn.dummyjson.com/product-images/7/2.jpg",
         "https://cdn.dummyjson.com/product-images/7/3.jpg",
         "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": "8",
@@ -184,7 +185,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "perfume Oil",
       "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
       "price": 13,
@@ -3819,6 +3820,61 @@
       },
       "paymentMethod": "cash",
       "selectedAddress": null,
+      "status": "pending"
+    },
+    {
+      "id": "2fd1",
+      "items": [
+        {
+          "id": "017e",
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/5/1.jpg",
+            "https://cdn.dummyjson.com/product-images/5/2.jpg",
+            "https://cdn.dummyjson.com/product-images/5/3.jpg"
+          ],
+          "deleted": true,
+          "quantity": 1,
+          "user": "a3f3"
+        }
+      ],
+      "totalAmount": 446,
+      "totalItems": 1,
+      "user": {
+        "id": "a3f3",
+        "email": "bansalgashi083@gmail.com",
+        "password": "Bansalgashi083@",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Ashish Bansal ashish",
+            "email": "bansalgashi083@gmail.com",
+            "phone": "09050758499",
+            "street": "Bilaspur (Yamunanagar)",
+            "city": "Jagadhri",
+            "state": "Haryana",
+            "pinCode": "135102"
+          }
+        ]
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Ashish Bansal ashish",
+        "email": "bansalgashi083@gmail.com",
+        "phone": "09050758499",
+        "street": "Bilaspur (Yamunanagar)",
+        "city": "Jagadhri",
+        "state": "Haryana",
+        "pinCode": "135102"
+      },
       "status": "pending"
     }
   ]

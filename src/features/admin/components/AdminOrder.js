@@ -8,6 +8,7 @@ import {
   updateOrderAsync,
 } from "../../order/orderSlice";
 import { PencilIcon, EyeIcon } from "@heroicons/react/24/solid";
+import Pagination from "../../common/Pagination";
 
 const AdminOrder = () => {
   const [page, setPage] = useState(1);
@@ -26,10 +27,16 @@ const AdminOrder = () => {
     dispatch(updateOrderAsync(updatedOrder));
     setEditableOrderId(-1);
   };
-  useEffect(() => {
+  const handlePage=(page)=>{
+    setPage(page);
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
     dispatch(fetchAllOrdersAsync(pagination));
+  }
+  useEffect(() => {
+    handlePage();
   }, [dispatch, page]);
+
+  
   const chooseColor = (status) => {
     switch (status) {
       case "pending":
@@ -40,7 +47,7 @@ const AdminOrder = () => {
         return "bg-green-200 text-green-600";
       case "cencelled":
         return "bg-red-200 text-red-600";
-        default :
+      default:
         return "bg-purple-200 text-purple-600";
     }
   };
@@ -114,7 +121,11 @@ const AdminOrder = () => {
                             <option value="cencelled">Cencelled</option>
                           </select>
                         ) : (
-                          <span className={`${chooseColor(order.status) }py-1 px-3 rounded-full text-xs`}>
+                          <span
+                            className={`${chooseColor(
+                              order.status
+                            )}py-1 px-3 rounded-full text-xs`}
+                          >
                             {order.status}
                           </span>
                         )}
@@ -141,6 +152,14 @@ const AdminOrder = () => {
               </table>
             </div>
           </div>
+        </div>
+        <div>
+          <Pagination
+            handlePage={handlePage}
+            page={page}
+            setPage={setPage}
+            totalItems={totalOrders}
+          />
         </div>
       </div>
     </>
