@@ -42,6 +42,7 @@ const sortOptions = [
 export default function ProductList() {
   const products = useSelector(selectAllProducts);
   console.log(products)
+  
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
   const totalItems = useSelector(selectTotalItems);
@@ -92,7 +93,7 @@ export default function ProductList() {
 
   useEffect(() => {
     console.log({totalItems})
-    const pagination = { _page: page,  _per_page: ITEMS_PER_PAGE };
+    const pagination = { _page: page, _per_page: ITEMS_PER_PAGE };
     dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);
 

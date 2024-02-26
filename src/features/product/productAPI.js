@@ -55,16 +55,17 @@ export function fetchProductsByFilter(filter,sort,pagination) {
   for(let key in sort){
     queryString += `${key}=${sort[key]}&`
   }
-  console.log(pagination)
+  
   for(let key in pagination){
     queryString += `${key}=${pagination[key]}&`
   }
   return new Promise(async (resolve) =>{
     //ToDo: we will nmot hard code the server url here
-    const response = await fetch('http://localhost:8080/products?'+queryString) 
-    const data = await response.json()
-    const totalItems = response.headers.get('X-Total-Count')
-    resolve({data:{products:data,totalItems:+totalItems}})}
+    const response = await fetch('http://localhost:8080/products?'+queryString)     
+    const data = await response.json();
+    const totalItems = data.item;
+    resolve({ data: { products: data, totalItems: +totalItems } });
+  }    
   );
 }
 export function fetchCategories() {
