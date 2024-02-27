@@ -203,7 +203,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Brown Perfume",
       "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
       "price": 40,
@@ -222,7 +222,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Fog Scent Xpressio Perfume",
       "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
       "price": 13,
@@ -241,7 +241,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Non-Alcoholic Concentrated Perfume Oil",
       "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
       "price": 120,
@@ -259,7 +259,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Eau De Perfume Spray",
       "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
       "price": 30,
@@ -278,7 +278,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Hyaluronic Acid Serum",
       "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
       "price": 19,
@@ -297,7 +297,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Tree Oil 30ml",
       "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
       "price": 12,
@@ -315,7 +315,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Oil Free Moisturizer 100ml",
       "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
       "price": 40,
@@ -334,7 +334,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Skin Beauty Serum.",
       "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
       "price": 46,
@@ -352,7 +352,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Freckle Treatment Cream- 15gm",
       "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
       "price": 70,
@@ -371,7 +371,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "- Daal Masoor 500 grams",
       "description": "Fine quality Branded Product Keep in a cool and dry place",
       "price": 20,
@@ -388,7 +388,7 @@
       ]
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Elbow Macaroni - 400 gm",
       "description": "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
       "price": 14,
@@ -2497,7 +2497,28 @@
       "role": "admin"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "95e2",
+      "title": "HP Pavilion 15-DK1056WM",
+      "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+      "price": 1099,
+      "discountPercentage": 6.18,
+      "rating": 4.43,
+      "stock": 89,
+      "brand": "HP Pavilion",
+      "category": "laptops",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/10/1.jpg",
+        "https://cdn.dummyjson.com/product-images/10/2.jpg",
+        "https://cdn.dummyjson.com/product-images/10/3.jpg",
+        "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
+      ],
+      "quantity": 1,
+      "user": "a3f3"
+    }
+  ],
   "orders": [
     {
       "id": "582f",
