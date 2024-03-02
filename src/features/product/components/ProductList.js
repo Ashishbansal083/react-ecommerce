@@ -106,7 +106,8 @@ export default function ProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   },[])
-
+  const ShowingProducts = products.slice(0,10);
+ 
   return (
     <div className="bg-white">
       <div>
@@ -196,7 +197,7 @@ export default function ProductList() {
               <DesktopFilter handlefilter={handlefilter} filters={filters}/>
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <ProductGrid products={products} />
+                <ProductGrid products={ShowingProducts} />
               </div>
             </div>
             {/* pagination section */}
