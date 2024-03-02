@@ -87,7 +87,7 @@ export default function AdminProductList() {
 
   useEffect(() => {
     console.log({ totalItems });
-    const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+    const pagination = { _page: page, _per_page: ITEMS_PER_PAGE };
     dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);
 
@@ -98,6 +98,7 @@ export default function AdminProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, []);
+  const ShowingProducts = products.slice(0,10);
 
   return (
     <div className="bg-white">
@@ -194,7 +195,7 @@ export default function AdminProductList() {
                     <Link to="/admin/product-form">Add New Product</Link>
                   </button>
                 </div>
-                <ProductGrid products={products} />
+                <ProductGrid products={ShowingProducts} />
               </div>
             </div>
             {/* pagination section */}
