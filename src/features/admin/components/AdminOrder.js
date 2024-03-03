@@ -27,16 +27,15 @@ const AdminOrder = () => {
     dispatch(updateOrderAsync(updatedOrder));
     setEditableOrderId(-1);
   };
-  const handlePage=(page)=>{
+  const handlePage = (page) => {
     setPage(page);
     const pagination = { _page: page, _per_page: ITEMS_PER_PAGE };
     dispatch(fetchAllOrdersAsync(pagination));
-  }
+  };
   useEffect(() => {
-    handlePage();
+    handlePage(page);
   }, [dispatch, page]);
 
-  
   const chooseColor = (status) => {
     switch (status) {
       case "pending":
@@ -101,14 +100,16 @@ const AdminOrder = () => {
                         </div>
                       </td>
                       <td className="py-3 px-6 text-center">
-                        <div>
-                          <strong>{order.selectedAddress.name}</strong>
-                        </div>
-                        <div>{order.selectedAddress.city}</div>
-                        <div>{order.selectedAddress.pincode}</div>
-                        <div>{order.selectedAddress.street}</div>
-                        <div>{order.selectedAddress.state}</div>
-                        <div>{order.selectedAddress.phone}</div>
+                        {order.selectedAddress && (<div>
+                          <div>
+                            <strong>{order.selectedAddress.name}</strong>
+                          </div>
+                          <div>{order.selectedAddress.city}</div>
+                          <div>{order.selectedAddress.pincode}</div>
+                          <div>{order.selectedAddress.street}</div>
+                          <div>{order.selectedAddress.state}</div>
+                          <div>{order.selectedAddress.phone}</div>
+                        </div>)}
                       </td>
                       <td className="py-3 px-6 text-center">
                         {order.id === editableOrderId ? (
