@@ -70,8 +70,8 @@ const AdminOrder = () => {
                   </tr>
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
-                  {orders.map((order) => (
-                    <tr className="border-b border-gray-200 hover:bg-gray-100">
+                  {orders.map((order,index) => (
+                    <tr className="border-b border-gray-200 hover:bg-gray-100" key={index}>
                       <td className="py-3 px-6 text-left whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="mr-2"></div>
@@ -100,16 +100,18 @@ const AdminOrder = () => {
                         </div>
                       </td>
                       <td className="py-3 px-6 text-center">
-                        {order.selectedAddress && (<div>
+                        {order.selectedAddress && (
                           <div>
-                            <strong>{order.selectedAddress.name}</strong>
+                            <div>
+                              <strong>{order.selectedAddress.name}</strong>
+                            </div>
+                            <div>{order.selectedAddress.city}</div>
+                            <div>{order.selectedAddress.pincode}</div>
+                            <div>{order.selectedAddress.street}</div>
+                            <div>{order.selectedAddress.state}</div>
+                            <div>{order.selectedAddress.phone}</div>
                           </div>
-                          <div>{order.selectedAddress.city}</div>
-                          <div>{order.selectedAddress.pincode}</div>
-                          <div>{order.selectedAddress.street}</div>
-                          <div>{order.selectedAddress.state}</div>
-                          <div>{order.selectedAddress.phone}</div>
-                        </div>)}
+                        )}
                       </td>
                       <td className="py-3 px-6 text-center">
                         {order.id === editableOrderId ? (

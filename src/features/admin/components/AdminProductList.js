@@ -86,7 +86,6 @@ export default function AdminProductList() {
   };
 
   useEffect(() => {
-    console.log({ totalItems });
     const pagination = { _page: page, _per_page: ITEMS_PER_PAGE };
     dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);
@@ -98,7 +97,7 @@ export default function AdminProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, []);
-  const ShowingProducts = products.slice(0,10);
+  const ShowingProducts = products.slice(0, 10);
 
   return (
     <div className="bg-white">
@@ -507,16 +506,19 @@ function ProductGrid({ products }) {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-gray-900">
-                          $
-                          {discountedPrice(product)}
+                          ${discountedPrice(product)}
                         </p>
                         <p className="text-sm font-medium text-gray-400 line-through">
                           ${product.price}
                         </p>
                       </div>
                     </div>
-                    <div 
-                    className="text-sm text-red-500">{product.deleted && <p>Product deleted</p>}</div>
+                    <div className="text-sm text-red-500">
+                      {product.deleted && <p>Product deleted</p>}
+                    </div>
+                    {product.stock<=0 && <div className="text-sm text-red-500">
+                      <p>Out Of Stock</p>
+                    </div>}
                   </div>
                 </Link>
                 <div className="mt-3">

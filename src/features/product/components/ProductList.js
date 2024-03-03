@@ -93,8 +93,7 @@ export default function ProductList() {
     setfilter(newFilter);
   };
 
-  useEffect(() => {
-    console.log({totalItems})
+  useEffect(() => {    
     const pagination = { _page: page, _per_page: ITEMS_PER_PAGE };
     dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);
