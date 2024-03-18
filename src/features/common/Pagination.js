@@ -3,7 +3,7 @@ import { ITEMS_PER_PAGE } from "../../app/constants";
 
 export default function Pagination({ handlePage, page, setPage, totalItems}) {
     const totalPages=Math.ceil(totalItems/ITEMS_PER_PAGE);
-    return (
+    return ( 
       <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
         <div className="flex flex-1 justify-between sm:hidden">
           <a

@@ -66,7 +66,7 @@ export default function ProductList() {
     },
   ];
   const handleSort = (e, option) => {
-    const sort = { _sort: option.sort };
+    const sort = { _sort: option.sort, _order: option.order };
     console.log({ sort });
     setSort(sort);
   };
@@ -105,7 +105,7 @@ export default function ProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   },[])
-  const ShowingProducts = products.slice(0,10);
+  // const ShowingProducts = products.slice(0,10);
  
   return (
     <div className="bg-white">
@@ -196,7 +196,7 @@ export default function ProductList() {
               <DesktopFilter handlefilter={handlefilter} filters={filters}/>
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <ProductGrid products={ShowingProducts} />
+                <ProductGrid products={products} />
               </div>
             </div>
             {/* pagination section */}
