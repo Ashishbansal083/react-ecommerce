@@ -41,19 +41,24 @@ export default function ProductDetail() {
 
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
-    console.log(items)
-    console.log(product?.id)
+    console.log(items);
+    console.log(product?.id);
   }, [dispatch, params.id]);
 
   const handleCart = (e) => {
-    e.preventDefault();    
-    const existingIndex = items.findIndex(item => item.productId === product.id);
+    e.preventDefault();
+    const existingIndex = items.findIndex(
+      (item) => item.product.id === product.id
+    );
     if (existingIndex <= 0) {
-      const newItem = { ...product, quantity: 1,productId: product.id, user: user.id };
-      delete newItem["id"];
+      const newItem = {        
+        quantity: 1,
+        product: product.id,
+        user: user.id,
+      };
       dispatch(addToCartAsync(newItem));
-    }else{
-      console.log('already added')
+    } else {
+      console.log("already added");
     }
   };
 
