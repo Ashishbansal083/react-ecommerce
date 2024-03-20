@@ -19,7 +19,7 @@ export function createProduct(product) {
     const response = await fetch('http://localhost:8080/products',{
       method:'POST',
       body:JSON.stringify(product),
-      headers:{"content-type":'aplication/json'}
+      headers:{"content-type":'application/json'}
     })
     const data =  await response.json()
     resolve({data})}
@@ -31,7 +31,7 @@ export function updateProduct(update) {
     {
       method:'PATCH',
       body:JSON.stringify(update),
-      headers:{"content-type":'aplication/json'}
+      headers:{"content-type":'application/json'}
 
     })
     const data =  await response.json()

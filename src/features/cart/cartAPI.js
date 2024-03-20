@@ -4,7 +4,7 @@ export function addToCart(item) {
     {
       method:'POST',
       body:JSON.stringify(item),
-      headers:{"content-type":'aplication/json'}
+      headers:{"content-type":'application/json'}
 
     })
     const data =  await response.json()
@@ -25,7 +25,7 @@ export function updateCart(update) {
     {
       method:'PATCH',
       body:JSON.stringify(update),
-      headers:{"content-type":'aplication/json'}
+      headers:{"content-type":'application/json'}
 
     })
     const data =  await response.json()
@@ -37,7 +37,7 @@ export function deleteItemFromCart(itemId) {
     const response = await fetch('http://localhost:8080/cart/'+itemId,
     {
       method:'DELETE',      
-      headers:{"content-type":'aplication/json'}
+      headers:{"content-type":'application/json'}
 
     })
     const data =  await response.json()

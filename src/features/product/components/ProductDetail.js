@@ -47,16 +47,13 @@ export default function ProductDetail() {
 
   const handleCart = (e) => {
     e.preventDefault();
-    const existingIndex = items.findIndex(
-      (item) => item.product.id === product.id
-    );
-    if (existingIndex <= 0) {
-      const newItem = {        
+    if (items.findIndex((item) => item.product?.id === product.id) < 0) {
+      const newItem = {
         quantity: 1,
         product: product.id,
         user: user.id,
       };
-      dispatch(addToCartAsync(newItem));
+      dispatch(addToCartAsync(newItem));      
     } else {
       console.log("already added");
     }
