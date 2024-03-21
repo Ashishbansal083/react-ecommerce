@@ -50,7 +50,7 @@ const CheckoutPage = () => {
       items,
       totalAmount,
       totalItems,
-      user,
+      user:user.id,
       paymentMethod,
       selectedAddress,
       status:"pending",
