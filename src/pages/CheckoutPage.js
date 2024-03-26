@@ -55,7 +55,7 @@ const CheckoutPage = () => {
       selectedAddress,
       status:"pending",
     };
-    dispatch(createOrderAsync(order));
+    dispatch(createOrderAsync(order)); 
   };
 
   return (
