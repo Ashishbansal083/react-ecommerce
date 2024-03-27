@@ -21,7 +21,7 @@ const CheckoutPage = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const user = useSelector(selectUserInfo);
+  const user = useSelector(selectUserInfo);  
   const currentOrder = useSelector(selectCurrentOrder);
   const [selectedAddress, setselectedAddress] = useState(null);
   const [paymentMethod, setpaymentMethod] = useState("cash");  

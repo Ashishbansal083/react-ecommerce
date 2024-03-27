@@ -48,8 +48,9 @@ export default function UserProfile() {
     // For example, resetting the form after a successful update
     reset();
   }, [user, reset]);
-  const handleAdd=(address)=>{
-    const newUser = { ...user, addresses: [...user.addresses,address] };   
+  const handleAdd=(data)=>{
+    const newUser = { ...user, addresses: [...user.addresses,data] };   
+    console.log(newUser)
     dispatch(updateUserAsync(newUser));
     setShowAddAddressFrom(false);
     
