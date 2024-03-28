@@ -3,7 +3,7 @@ export function createUser(userData) {
     const response = await fetch("http://localhost:8080/auth/signup", {
       method: "POST",
       body: JSON.stringify(userData),
-      headers: { "content-type": "aplication/json" },
+      headers: { "content-type": "application/json" },
     });
     const data = await response.json();
     resolve({ data });
