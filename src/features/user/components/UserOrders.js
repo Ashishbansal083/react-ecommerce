@@ -12,12 +12,12 @@ export default function UserOrders() {
   const user = useSelector(selectUserInfo);
   const orders = useSelector(selectUserOrders);
   useEffect(() => {
-    dispatch(fetchLoggedInUserOrdersAsync(user?.id));
-  }, []);
+    dispatch(fetchLoggedInUserOrdersAsync(user.id));
+  }, [dispatch,user]);
 
   return (
     <div>
-      {orders.map((order,index) => (
+      {orders && orders.map((order,index) => (
         <div key={index}>
           <div className="mx-auto max-w-7xl mt-10 px-4 py-6 sm:px-6 lg:px-8 bg-white">
             <h className="text-4xl font-bold tracking-tight text-gray-900 mx-5 ">

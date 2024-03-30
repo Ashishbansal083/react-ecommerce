@@ -15,8 +15,8 @@ const initialState = {
 // typically used to make async requests.
 export const fetchLoggedInUserOrdersAsync = createAsyncThunk(
   'user/fetchLoggedInUserOrders',
-  async (id) => {
-    const response = await fetchLoggedInUserOrders(id);
+  async (userId) => {
+    const response = await fetchLoggedInUserOrders(userId);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
