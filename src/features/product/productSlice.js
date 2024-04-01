@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchAllProducts,fetchProductsByFilter,fetchBrands,fetchCategories,fetchProductById,createProduct,updateProduct } from './productAPI';
+import { fetchProductsByFilter,fetchBrands,fetchCategories,fetchProductById,createProduct,updateProduct } from './productAPI';
 
 const initialState = {
   products: [],
@@ -15,14 +15,8 @@ const initialState = {
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
-export const fetchAllProductsAsync = createAsyncThunk(
-  'product/fetchAllProducts',
-  async () => {
-    const response = await fetchAllProducts();
-    // The value we return becomes the `fulfilled` action payload
-    return response.data;
-  }
-);
+
+
 export const fetchProductByIdAsync = createAsyncThunk(
   'product/fetchProductById',
   async (id) => {
@@ -84,14 +78,7 @@ export const productSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
  
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchAllProductsAsync.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
-        state.products = action.payload;
-      })
+    builder      
       .addCase(fetchProductsByFilterAsync.pending, (state) => {
         state.status = 'loading';
       })
