@@ -86,7 +86,7 @@ export default function AdminProductList() {
 
   useEffect(() => {
     const pagination = { _page: page, _per_page: ITEMS_PER_PAGE };
-    dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
+    dispatch(fetchProductsByFilterAsync({ filter, sort, pagination,admin:true }));
   }, [dispatch, filter, sort, page]);
 
   useEffect(() => {
@@ -96,7 +96,7 @@ export default function AdminProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, []);
-  const ShowingProducts = products.slice(0, 10);
+  
 
   return (
     <div className="bg-white">
@@ -193,7 +193,7 @@ export default function AdminProductList() {
                     <Link to="/admin/product-form">Add New Product</Link>
                   </button>
                 </div>
-                <ProductGrid products={ShowingProducts} />
+                <ProductGrid products={products} />
               </div>
             </div>
             {/* pagination section */}
@@ -202,7 +202,7 @@ export default function AdminProductList() {
                 handlePage={handlePage}
                 page={page}
                 setPage={setPage}
-                // totalItems={totalItems}
+                totalItems={totalItems}
               />
             </div>
           </section>
@@ -389,7 +389,7 @@ function DesktopFilter({ handlefilter, filters }) {
   );
 }
 
-function Pagiation({ handlePage, page, setPage, totalItems = 100 }) {
+function Pagiation({ handlePage, page, setPage, totalItems}) { 
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
