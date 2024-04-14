@@ -51,7 +51,6 @@ export default function ProductDetail() {
       const newItem = {
         quantity: 1,
         product: product.id,
-        user: user.id,
       };
       dispatch(addToCartAsync(newItem));      
     } else {
