@@ -33,7 +33,7 @@ function classNames(...classes) {
 const Navbar = ({ children }) => {
   const items = useSelector(selectItems);
   const userInfo = useSelector(selectUserInfo);
-  return (
+  return (userInfo && 
     <div className="min-h-full">
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (

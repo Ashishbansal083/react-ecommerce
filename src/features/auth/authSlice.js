@@ -1,12 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { createUser } from "./authAPI";
-import { checkUser, signOut } from "./authAPI";
+import { checkUser, signOut,loginUser } from "./authAPI";
 import { updateUser } from "../user/userAPI";
 
 const initialState = {
-  loggedInUser: null,
+  loggedInUserToken: null,
   status: "idle",
   error: null,
+  userChecked: false,
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -28,11 +29,11 @@ export const signOutAsync = createAsyncThunk("user/signOut", async (userId) => {
   return response.data;
 });
 
-export const checkUserAsync = createAsyncThunk(
-  "user/checkUser",
+export const loginUserAsync = createAsyncThunk(
+  "user/loginUser",
   async (loginInfo,{rejectWithValue}) => {
     try {
-      const response = await checkUser(loginInfo);
+      const response = await loginUser(loginInfo);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -40,6 +41,18 @@ export const checkUserAsync = createAsyncThunk(
     }
   }
 );
+export const checkUserAsync = createAsyncThunk(
+  'user/checkUser',
+  async () => {
+    try {
+      const response = await checkUser();
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 
 export const authSlice = createSlice({
   name: "user",
@@ -53,16 +66,17 @@ export const authSlice = createSlice({
       })
       .addCase(createUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.loggedInUser = action.payload;
+        state.loggedInUserToken = action.payload;
       })
-      .addCase(checkUserAsync.pending, (state) => {
+      .addCase(loginUserAsync.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(checkUserAsync.fulfilled, (state, action) => {
+      .addCase(loginUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.loggedInUser = action.payload;
+        state.loggedInUserToken = action.payload;
+        
       })
-      .addCase(checkUserAsync.rejected, (state, action) => {
+      .addCase(loginUserAsync.rejected, (state, action) => {
         state.status = "idle";
         state.error = action.payload;
       })
@@ -71,12 +85,25 @@ export const authSlice = createSlice({
       })
       .addCase(signOutAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.loggedInUser = null;
+        state.loggedInUserToken = null;
+      })
+      .addCase(checkUserAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(checkUserAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.loggedInUserToken = action.payload;
+        state.userChecked = true;
+      })
+      .addCase(checkUserAsync.rejected, (state, action) => {
+        state.status = 'idle';
+        state.userChecked = true;
       });
   },
 });
 
-export const selectLoggedInUser = (state) => state.auth.loggedInUser;
+export const selectLoggedInUser = (state) => state.auth.loggedInUserToken;
+export const selectUserChecked = (state) => state.auth.userChecked;
 export const selectError = (state) => state.auth.error;
 
 export default authSlice.reducer;
