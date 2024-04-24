@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Link, Navigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import {selectLoggedInUser,checkUserAsync, selectError} from '../authSlice'
+import {selectLoggedInUser,loginUserAsync, selectError} from '../authSlice'
 
 const Login = () => {
   const user=useSelector(selectLoggedInUser)
@@ -37,7 +37,7 @@ const Login = () => {
           <form 
           noValidate
           onSubmit={handleSubmit((data) => {
-            dispatch(checkUserAsync({email:data.email,password:data.password}))            
+            dispatch(loginUserAsync({email:data.email,password:data.password}))            
           })}      
           className="space-y-6" action="#" method="POST">
             <div>
