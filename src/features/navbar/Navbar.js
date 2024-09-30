@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectItems } from "../cart/cartSlice";
-import { selectLoggedInuserInfo } from "../auth/authSlice";
+import { selectLoggedInUser, selectLoggedInuserInfo } from "../auth/authSlice";
 import { selectUserInfo } from "../user/userSlice";
 
 
@@ -31,8 +31,10 @@ function classNames(...classes) {
 }
 
 const Navbar = ({ children }) => {
+  const user = useSelector(selectLoggedInUser);
   const items = useSelector(selectItems);
   const userInfo = useSelector(selectUserInfo);
+  
   return (userInfo && 
     <div className="min-h-full">
       <Disclosure as="nav" className="bg-gray-800">
